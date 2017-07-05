@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.*;
 import com.badlogic.gdx.graphics.VertexAttributes.Usage;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g3d.*;
+import com.badlogic.gdx.graphics.g3d.attributes.BlendingAttribute;
 import com.badlogic.gdx.graphics.g3d.attributes.ColorAttribute;
 import com.badlogic.gdx.graphics.g3d.environment.DirectionalLight;
 import com.badlogic.gdx.graphics.g3d.loader.G3dModelLoader;
@@ -46,6 +47,7 @@ public class Main extends ApplicationAdapter {
 		g3dModelLoader = new G3dModelLoader(jsonReader);
 		model = g3dModelLoader.loadModel(Gdx.files.getFileHandle("2x2.g3dj", Files.FileType.Internal));
 		//model = loader.loadModel(Gdx.files.internal("ship.obj"));
+		model.materials.get(0).set(new BlendingAttribute(false, 1.0f));
 
 		instance = new ModelInstance(model);
 		//instance.transform.scale(.001f, .001f, .001f);
